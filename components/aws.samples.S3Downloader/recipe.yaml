@@ -1,0 +1,127 @@
+---
+RecipeFormatVersion: "2020-01-25"
+ComponentName: "{COMPONENT_NAME}"
+ComponentVersion: "{COMPONENT_VERSION}"
+ComponentDescription: "Download LLM using s5cmd."
+ComponentPublisher: "{COMPONENT_AUTHOR}"
+ComponentDependencies:
+  aws.greengrass.TokenExchangeService:
+    VersionRequirement: ">=2.0.0"
+    DependencyType: HARD
+ComponentConfiguration:
+  DefaultConfiguration:
+    TopicPrefix: "s3downloader"
+    DownloadDir: "/data/downloads/model"
+    ProcessInterval: 10
+    LogLevel: "INFO"
+    S5cmdVersion: "2.3.0"
+    accessControl:
+      aws.greengrass.ipc.mqttproxy:
+        nvidia.platform.aws.PublishMetadata:pubsub:1:
+          policyDescription: Publish and subscribe to any topic
+          operations:
+            - aws.greengrass#PublishToIoTCore
+            - aws.greengrass#SubscribeToIoTCore
+          resources:
+            - "*"
+Manifests:
+  - Platform:
+      os: linux
+    Artifacts:
+      - URI: "s3://BUCKET_NAME/COMPONENT_NAME/COMPONENT_VERSION/main-artifact.zip"
+        Unarchive: ZIP
+    Lifecycle:
+      Setenv:
+        ARTIFACT_NAME: "main-artifact"
+        VENV_PATH: ".venv"
+      Install:
+        RequiresPrivilege: true
+        Script: |
+          #!/bin/bash
+          set -e
+
+          # Check and install python3-venv if needed
+          if ! dpkg -l | grep -q python3-venv; then
+            apt-get update
+            apt-get install -y python3-venv
+          fi
+
+          # Setup Python environment
+          python3 -m venv $VENV_PATH
+          . "$VENV_PATH/bin/activate"
+          pip install -r {artifacts:decompressedPath}/$ARTIFACT_NAME/requirements.txt
+
+          # Install s5cmd using the installation script
+          chmod +x {artifacts:decompressedPath}/$ARTIFACT_NAME/install_s5cmd.sh
+          {artifacts:decompressedPath}/$ARTIFACT_NAME/install_s5cmd.sh "{configuration:/S5cmdVersion}"
+
+          # Create required directories
+          mkdir -p "{configuration:/downloadDir}"
+          mkdir -p "{configuration:/resumeDir}"
+
+          echo "Installation completed successfully"
+
+      Run:
+        RequiresPrivilege: true
+        Script: |
+          #!/bin/bash
+          set -e
+
+          # Add debug logging
+          echo "Starting component execution..."
+          echo "VENV_PATH: $VENV_PATH"
+          echo "LOG_LEVEL: {configuration:/LogLevel}"
+          echo "THING_NAME: $AWS_IOT_THING_NAME"
+          echo "TOPIC_PREFIX: {configuration:/TopicPrefix}"
+          echo "DOWNLOAD_DIR: {configuration:/DownloadDir}"
+          echo "PROCESS_INTERVAL: {configuration:/ProcessInterval}"
+
+          # Activate virtual environment
+          . "$VENV_PATH/bin/activate"
+
+          # Set environment variables
+          export LOG_LEVEL={configuration:/LogLevel}
+
+          python3 -u {artifacts:decompressedPath}/$ARTIFACT_NAME/main.py \
+            --thing-name "$AWS_IOT_THING_NAME" \
+            --download-dir "{configuration:/DownloadDir}" \
+            --topic-prefix "{configuration:/TopicPrefix}" \
+            --process-interval {configuration:/ProcessInterval}
+
+      Shutdown:
+        Script: |
+          #!/bin/bash
+          set -e
+
+          echo "Starting component shutdown..."
+
+          # Use specific path to identify our process
+          PROCESS_PATH="{artifacts:decompressedPath}/$ARTIFACT_NAME/main.py"
+
+          # Gracefully terminate the specific Python process
+          if pgrep -f "python3.*${PROCESS_PATH}" > /dev/null; then
+            echo "Terminating Download LLM process..."
+            pkill -SIGTERM -f "python3.*${PROCESS_PATH}" || true
+            
+            # Wait for process to terminate (up to 10 seconds)
+            for i in {1..10}; do
+              if ! pgrep -f "python3.*${PROCESS_PATH}" > /dev/null; then
+                break
+              fi
+              sleep 1
+            done
+            
+            # Force kill if still running
+            if pgrep -f "python3.*${PROCESS_PATH}" > /dev/null; then
+              echo "Force terminating process..."
+              pkill -SIGKILL -f "python3.*${PROCESS_PATH}" || true
+            fi
+          fi
+
+          # Deactivate virtual environment if it's active
+          if [ -n "$VIRTUAL_ENV" ]; then
+            echo "Deactivating virtual environment..."
+            deactivate || true
+          fi
+
+          echo "Shutdown complete"

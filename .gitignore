@@ -1,0 +1,24 @@
+*build/
+build
+*dist/
+*.egg-info
+*__pycache__
+*htmlcov/
+*.coverage
+*.iml
+*.DS_Store
+*.eggs
+zip-build
+greengrass-build
+backup/
+checksums/
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+_assets/.$architecture-diagram.drawio.bkp
+docs/wiki/

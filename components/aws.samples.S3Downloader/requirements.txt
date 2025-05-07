@@ -1,0 +1,2 @@
+awsiotsdk >= 1.17.0
+awsiot >= 0.1.0

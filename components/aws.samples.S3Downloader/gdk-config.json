@@ -1,0 +1,19 @@
+{
+  "component": {
+    "aws.samples.S3Downloader": {
+      "author": "Amazon Web Services",
+      "version": "NEXT_PATCH",
+      "build": {
+        "build_system": "zip",
+        "options": {
+          "zip_name": "main-artifact"
+        }
+      },
+      "publish": {
+        "bucket": "greengrass-components",
+        "region": "us-west-2"
+      }
+    }
+  },
+  "gdk_version": "1.3.0"
+}
