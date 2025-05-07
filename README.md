@@ -3,9 +3,11 @@
 A robust solution for managing large file downloads from Amazon S3 to edge devices through AWS Greengrass. This solution can be used to deploy large machine learning models, such as Large Language Models (LLMs) and Vision Language Models (VLMs), on edge devices through AWS Greengrass.
 
 ## Overview
+
 This component efficiently manages the downloading and handling of Large Language Model files from Amazon S3 to edge devices via AWS Greengrass. Built to overcome the 5GB Greengrass component artifact size limitation, it enables seamless model updates with minimal service interruption.
 
 ## Key Features
+
 - Robust Download Management
   - Pause/Resume functionality
   - Progress tracking and real-time status updates via AWS IoT Core
@@ -26,6 +28,7 @@ This component efficiently manages the downloading and handling of Large Languag
   - Support for individual file and recursive directory downloads
 
 ## Why Use This Component?
+
 - Overcomes Size Limitations: Bypasses the 5GB Greengrass component artifact size restriction
 - Minimal Downtime: Downloads files without interrupting other services
 - Real-time Monitoring: Provides continuous visibility into download progress
@@ -34,6 +37,7 @@ This component efficiently manages the downloading and handling of Large Languag
 - Model Registry: Maintains a consistent record of all models stored on the device
 
 ## Alternative Implementation
+
 A Java version with similar capabilities is available:
 - [aws-greengrass-labs-s3-file-downloader](https://github.com/awslabs/aws-greengrass-labs-s3-file-downloader)
 
@@ -61,6 +65,7 @@ A Java version with similar capabilities is available:
 │       └── requirements.txt                # Python dependencies
 └── docker/                                 # Docker image build and publish scripts
 ```
+
 
 ## Usage Instructions
 
@@ -348,6 +353,7 @@ The component consists of several key modules:
 
 6. **MQTT Interface (mqtt_interface.py)**: Abstract interface for MQTT communication with implementations for both Greengrass and mock testing.
 
+
 ## Model Shadow Management
 
 The component uses AWS IoT Device Shadows to maintain a registry of all models on the device:
@@ -395,6 +401,7 @@ The component uses AWS IoT Device Shadows to maintain a registry of all models o
    - If model metadata was provided, it is added to the device shadow
    - A model_added event is published to the response topic
 
+
 ## Optimization Tips
 
 1. **Parallel Downloads with File Splitting**
@@ -425,6 +432,7 @@ The component uses AWS IoT Device Shadows to maintain a registry of all models o
    - Check logs at: `/greengrass/v2/logs/aws.samples.S3Downloader.log`
    - Subscribe to status topics for real-time updates
    - Forward status messages to CloudWatch for historical tracking
+
 
 ## Troubleshooting
 
