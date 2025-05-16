@@ -17,7 +17,7 @@ ComponentConfiguration:
     S5cmdVersion: "2.3.0"
     accessControl:
       aws.greengrass.ipc.mqttproxy:
-        nvidia.platform.aws.PublishMetadata:pubsub:1:
+        aws.samples.S3Downloader:IoTCorePubSub:1:
           policyDescription: Publish and subscribe to any topic
           operations:
             - aws.greengrass#PublishToIoTCore
