@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2025-04-30T16:56:28.128Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="FNteLPIbKVMkMBRfZI2v" version="24.5.3" type="device">
+<mxfile host="Electron" modified="2025-05-20T03:32:55.230Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="ujyqATyaEZSv9_tooFKY" version="24.5.3" type="device">
   <diagram name="Page-1" id="eWftpw6a3fO9nzeyyDMk">
-    <mxGraphModel dx="1066" dy="861" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" math="0" shadow="0">
+    <mxGraphModel dx="954" dy="674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -24,7 +24,7 @@
             <mxPoint x="90" y="208" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="AcuNDtau0FOJBF-5IhUa-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="c1IH__bVCFyz_OlSx8WP-38" source="c1IH__bVCFyz_OlSx8WP-42" target="AcuNDtau0FOJBF-5IhUa-1">
+        <mxCell id="AcuNDtau0FOJBF-5IhUa-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="c1IH__bVCFyz_OlSx8WP-38" source="c1IH__bVCFyz_OlSx8WP-42" target="AcuNDtau0FOJBF-5IhUa-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="c1IH__bVCFyz_OlSx8WP-42" value="AWS IoT Core" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.iot_core;" parent="c1IH__bVCFyz_OlSx8WP-38" vertex="1">
@@ -57,7 +57,7 @@
         <mxCell id="c1IH__bVCFyz_OlSx8WP-60" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;AWS IoT&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Greengrass&lt;/font&gt;&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.greengrass;" parent="c1IH__bVCFyz_OlSx8WP-38" vertex="1">
           <mxGeometry x="41.670000000000016" y="69" width="45" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="AcuNDtau0FOJBF-5IhUa-1" value="Device Shadow&lt;div&gt;(Model Meta)&lt;/div&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.shadow;" vertex="1" parent="c1IH__bVCFyz_OlSx8WP-38">
+        <mxCell id="AcuNDtau0FOJBF-5IhUa-1" value="Device Shadow&lt;div&gt;(Model Meta)&lt;/div&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.shadow;" parent="c1IH__bVCFyz_OlSx8WP-38" vertex="1">
           <mxGeometry x="40.610000000000014" y="260.5" width="48.12" height="47.5" as="geometry" />
         </mxCell>
         <mxCell id="c1IH__bVCFyz_OlSx8WP-48" value="&lt;b&gt;Edge Device&lt;/b&gt;" style="fillColor=#EFF0F3;strokeColor=none;dashed=0;verticalAlign=top;fontStyle=0;fontColor=#232F3D;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -78,7 +78,7 @@
         <mxCell id="c1IH__bVCFyz_OlSx8WP-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;dashed=1;" parent="c1IH__bVCFyz_OlSx8WP-49" source="c1IH__bVCFyz_OlSx8WP-63" target="c1IH__bVCFyz_OlSx8WP-52" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="c1IH__bVCFyz_OlSx8WP-63" value="aws.samples.DownloadLlm" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.iot_greengrass_component_public;" parent="c1IH__bVCFyz_OlSx8WP-49" vertex="1">
+        <mxCell id="c1IH__bVCFyz_OlSx8WP-63" value="aws.samples.S3Downloader" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.iot_greengrass_component_public;" parent="c1IH__bVCFyz_OlSx8WP-49" vertex="1">
           <mxGeometry x="210" y="140" width="40" height="40" as="geometry" />
         </mxCell>
         <mxCell id="c1IH__bVCFyz_OlSx8WP-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" parent="1" source="c1IH__bVCFyz_OlSx8WP-60" target="c1IH__bVCFyz_OlSx8WP-52" edge="1">
