@@ -563,7 +563,7 @@ class S3CommandService:
                     
                     # Add file information to model metadata
                     dest_path = info.get('destination', self.command_manager.default_download_dir)
-                    file_name = info.get('file_name', os.path.basename(info.get('key', '')))
+                    file_name = info.get('file_name')
                     local_path = os.path.join(dest_path, file_name)
                     
                     # Update model metadata with file path

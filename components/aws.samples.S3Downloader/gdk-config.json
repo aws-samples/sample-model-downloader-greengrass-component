@@ -6,7 +6,19 @@
       "build": {
         "build_system": "zip",
         "options": {
-          "zip_name": "main-artifact"
+          "zip_name": "main-artifact",
+          "excludes": [
+            "**/*.pyc",
+            "**/__pycache__",
+            "**/.pytest_cache",
+            "**/tests/",
+            "**/tests/*",
+            "**/.git/",
+            "**/.git/*",
+            "**/.venv",
+            "**/.env",
+            "**/.!*"
+          ]
         }
       },
       "publish": {

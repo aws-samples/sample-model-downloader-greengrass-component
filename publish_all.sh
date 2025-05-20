@@ -84,8 +84,8 @@ do
         for IMAGE_NAME in "${IMAGE_NAMES[@]}"; do
             # Check if the specific docker image directory exists
             if [ ! -d "./docker/$IMAGE_NAME" ]; then
-                echo "ERROR: Docker directory for $IMAGE_NAME doesn't exist. Cannot continue with Docker-dependent component."
-                exit 1
+                echo "WARNING: Docker directory for $IMAGE_NAME doesn't exist. Skipping Docker build."
+                continue  # Skip to the next Docker image
             fi
 
             # Load the docker previous hash from the file

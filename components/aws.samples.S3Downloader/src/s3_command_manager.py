@@ -229,7 +229,7 @@ class S3CommandManager:
             'controller': self.controller,
             's5cmd_args': s5cmd_args,
             'global_options': global_options,
-            'file_name': os.path.basename(key.rstrip('/')),
+            'file_name': '*' if key.endswith('/') else key,
             'task': None,
             'command_id': command_id
         }
